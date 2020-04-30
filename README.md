@@ -1,6 +1,6 @@
-# Magikal MC
+![Magikal MC Logo](<https://i.imgur.com/IvgSZZf.png>)
 
-Magikal MC is a minecraft server based on PaperMC. This repository contains the full configuration necesary to run the server
+Magikal MC is a minecraft server built on PaperMC. This repository contains the full configuration necesary to run the server
 
 ## Table of Contents
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
