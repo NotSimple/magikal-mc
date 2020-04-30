@@ -1,0 +1,16 @@
+# Environment variables
+.env
+
+# IDE config files
+.vscode
+
+# Ignore all minecraft files by default
+/data/*
+# Un-ignore specific minecraft files
+!/data/plugins/
+!/data/bukkit.yml
+!/data/commands.yml
+!/data/paper.yml
+!/data/permissions.yml
+!/data/server.properties
+!/data/spigot.yml

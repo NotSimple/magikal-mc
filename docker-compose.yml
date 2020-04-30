@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  mc:
+    container_name: magikal_mc
+    image: itzg/minecraft-server
+    environment:
+      EULA: 'true'
+      TYPE: PAPER
+      VERSION: 1.15.2
+      INIT_MEMORY: ${INIT_MEMORY}
+      MAX_MEMORY: ${MAX_MEMORY}
+      GUI: 'false'
+    command: --noconsole
+    ports:
+      - ${HOST_PORT}:25565
+    volumes:
+      - ${HOST_DATA_PATH}:/data

@@ -1,0 +1,46 @@
+# Magikal MC
+
+Magikal MC is a minecraft server based on PaperMC. This repository contains the full configuration necesary to run the server
+
+## Table of Contents
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Requirements](#requirements)
+- [Environment configuration](#environment-configuration)
+- [Run the server](#run-the-server)
+- [Contributing](#contributing)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+## Requirements
+
+- Docker: <https://docs.docker.com/get-docker>
+- Docker Compose: <https://docs.docker.com/compose>
+
+Note: Docker works best on linux
+If you're using windows, see our recommended solution for [docker on windows](docs/development/docker-help/docker-on-windows.md)
+
+## Environment Configuration
+
+You must setup an __.env file__ to configure the following settings:
+
+- HOST_PORT - this sets the port on your host machine through which you can connect to the minecraft server
+- HOST_DATA_PATH - this sets the absolute path to the /data folder included in this repository
+- INIT_MEMORY - this sets the starting RAM allocated to the minecraft server
+- MAX_MEMORY - this sets the maximum amount of RAM that may be allocated to the minecraft server
+
+To see an example of a .env file and how to configure these settings take a look at the [.env.example](.env.example) file included in this repository
+
+## Run the Server
+
+After [fulfilling the requirements](#requirements) and [configuring your environment variables](#environment-configuration), you may run the server
+
+```bash
+docker-compose up
+```
+
+After running this command, the server should be up and running!
+
+## Contributing
+
+Please read the [contributing guide](CONTRIBUTING.md) to see our code development & configuration management workflow and standards
