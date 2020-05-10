@@ -28,8 +28,21 @@ You must setup an __.env file__ to configure the following settings:
 - HOST_DATA_PATH - this sets the absolute path to the /data folder included in this repository
 - INIT_MEMORY - this sets the starting RAM allocated to the minecraft server
 - MAX_MEMORY - this sets the maximum amount of RAM that may be allocated to the minecraft server
+- DB_NAME - this sets the postgresql database name
+- DB_USER - this sets the postgresql database user
+- DB_PASSWORD - this sets the postgresql database password
+- LOCAL_DB_DATA - this sets the path on your host machine to the database data
+- RCON_PASSWORD - this sets the RCON password
 
 To see an example of a .env file and how to configure these settings take a look at the [.env.example](.env.example) file included in this repository
+
+To complete the configuration, run
+
+```sh
+./script/load-defaults.sh
+```
+
+This will load preconfigured files from /default_data to the /data folder and replace standing-in variable expressions with env variables.
 
 ## Run the Server
 

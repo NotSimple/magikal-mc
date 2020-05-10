@@ -14,5 +14,24 @@ services:
     command: --noconsole
     ports:
       - ${HOST_PORT}:25565
+    networks: 
+      - mc-net
     volumes:
       - ${HOST_DATA_PATH}:/data
+    depends_on:
+      - db
+  db:
+    image: postgres:11.7
+    restart: unless-stopped
+    volumes:
+      - ${LOCAL_DB_DATA}:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    networks:
+      - mc-net
+networks: 
+  mc-net:
