@@ -192,3 +192,5 @@ world-settings:
       max-refills: -1
       refresh-min: 12h
       refresh-max: 2d
+    viewdistances:
+      no-tick-view-distance: -1

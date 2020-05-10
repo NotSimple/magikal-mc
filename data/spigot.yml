@@ -107,6 +107,9 @@ world-settings:
       sweetberry-modifier: 100
       kelp-modifier: 100
     entity-activation-range:
+      villagers-work-immunity-after: 100
+      villagers-work-immunity-for: 20
+      villagers-active-for-panic: true
       animals: 32
       monsters: 32
       raiders: 48
@@ -150,3 +153,5 @@ world-settings:
     ticks-per:
       hopper-transfer: 8
       hopper-check: 1
+  worldeditregentempworld:
+    verbose: false
