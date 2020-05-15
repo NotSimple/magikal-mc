@@ -8,3 +8,6 @@
 /data/*
 # Except .gitkeep file
 !/data/.gitkeep
+
+# Ignore dynmap map web server files
+/nginx/html/map/*

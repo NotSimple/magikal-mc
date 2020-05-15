@@ -1,0 +1,59 @@
+version: '3.7'
+
+services:
+  mc:
+    container_name: magikal_mc
+    image: itzg/minecraft-server
+    environment:
+      EULA: 'true'
+      TYPE: PAPER
+      VERSION: 1.15.2
+      INIT_MEMORY: ${INIT_MEMORY}
+      MAX_MEMORY: ${MAX_MEMORY}
+      GUI: 'false'
+    command: --noconsole
+    ports:
+      - ${HOST_PORT}:25565
+    networks: 
+      - mc-net
+    volumes:
+      - ${HOST_DATA_PATH}:/data
+    depends_on:
+      - db
+  db:
+    image: postgres:11.7
+    restart: unless-stopped
+    volumes:
+      - ${LOCAL_DB_DATA}:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    networks:
+      - mc-net 
+  web:
+    container_name: magikal_web
+    image: staticfloat/nginx-certbot
+    restart: unless-stopped
+    volumes:
+      - ${HOST_NGINX_CONFIG_PATH}:/etc/nginx/user.conf.d:ro
+      - ${HOST_NGINX_HTML_PATH}:/var/www/html
+      - letsencrypt:/etc/letsencrypt
+    environment:
+      CERTBOT_EMAIL: ${CERTBOT_EMAIL}
+      IS_STAGING: ${CERTBOT_STAGING}
+      ENVSUBST_VARS: SERVER_SLD
+      SERVER_SLD: ${SERVER_SLD}
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - mc-net
+    depends_on:
+      - mc
+volumes:
+  letsencrypt: 
+networks: 
+  mc-net:
